@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080b16;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: #0d1224;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.logo span, h1 span, h2 span {
+    color: #00c8ff;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-left: 17px;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    color: #00c8ff;
+}
+
+.hero {
+    min-height: 520px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 10%;
+    gap: 30px;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.welcome {
+    color: #00c8ff;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    line-height: 1.8;
+    color: #bbb;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 28px;
+    background: #00c8ff;
+    color: #080b16;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.circle {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00c8ff, #8b36ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 50px #008cff66;
+}
+
+.inner-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #10172c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: #00c8ff;
+}
+
+.about, .skills, .project {
+    padding: 70px 10%;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #111a30;
+    border: 1px solid #263957;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+    color: #bbb;
+}
+
+.card h3 {
+    color: #00c8ff;
+    margin-bottom: 15px;
+}
+
+.skill-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-card {
+    background: #111a30;
+    border: 1px solid #00c8ff;
+    padding: 25px 40px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    background: #00c8ff;
+    color: #080b16;
+    transform: translateY(-5px);
+}
+
+/* TRAVEL CAROUSEL */
+
+.travel {
+    padding: 80px 5%;
+    text-align: center;
+    background: #0b1020;
+    overflow: hidden;
+}
+
+.travel-desc {
+    color: #aaa;
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 950px;
+    height: 430px;
+    margin: 30px auto;
+    perspective: 1200px;
+}
+
+.travel-card {
+    position: absolute;
+    width: 55%;
+    height: 360px;
+    top: 35px;
+    left: 22.5%;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.7s ease;
+    box-shadow: 0 15px 40px #0009;
+}
+
+.travel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.travel-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 30%, #000d);
+}
+
+.travel-info {
+    position: absolute;
+    bottom: 35px;
+    left: 25px;
+    z-index: 2;
+    text-align: left;
+}
+
+.travel-info h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.travel-info p {
+    color: #ddd;
+    margin-bottom: 18px;
+}
+
+.travel-info a {
+    display: inline-block;
+    color: #080b16;
+    background: #00c8ff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.travel-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 3;
+}
+
+.travel-card.next {
+    opacity: 0.7;
+    transform: translateX(65%) scale(0.75);
+    z-index: 2;
+}
+
+.travel-card.prev {
+    opacity: 0.7;
+    transform: translateX(-65%) scale(0.75);
+    z-index: 2;
+}
+
+.travel-card.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.carousel-controls button {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #00c8ff;
+    background: transparent;
+    color: #00c8ff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+    background: #00c8ff;
+    color: #080b16;
+}
+
+#counter {
+    color: #00c8ff;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0d1224;
+    color: #888;
+    line-height: 2;
+}
+
+@media (max-width: 650px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu a {
+        margin: 5px;
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    .inner-circle {
+        width: 155px;
+        height: 155px;
+    }
+
+    .carousel {
+        height: 320px;
+    }
+
+    .travel-card {
+        width: 85%;
+        height: 270px;
+        left: 7.5%;
+        top: 20px;
+    }
+
+    .travel-card.next {
+        transform: translateX(45%) scale(0.75);
+    }
+
+    .travel-card.prev {
+        transform: translateX(-45%) scale(0.75);
+    }
+
+    .travel-info h3 {
+        font-size: 20px;
+    }
+
+    .travel-info p {
+        font-size: 12px;
+    }
+}
